@@ -6,6 +6,7 @@ branches:
     - master
     - development
 script:
+  - rm -rf node_modules/
   - yarn install
   - npm install
   - npm run test
