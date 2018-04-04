@@ -20,7 +20,7 @@ import rootSaga from './sagas';
 import throttle from 'lodash/throttle';
 
 // Views
-import { Home } from './views/';
+import { Home, TestView } from './views/';
 
 // Utils
 import { loadState, saveState } from './util/localStorage';
@@ -64,6 +64,7 @@ render(
     <Router history={history}>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/test" component={TestView} />
       </Switch>
     </Router>
   </Provider>,
