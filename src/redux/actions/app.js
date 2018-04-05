@@ -1,16 +1,6 @@
-import { TOAST_DOWN, TOAST_UP } from '../types';
+import { CHANGE_SEARCH_INE } from '../types';
 
-export function toastUp(notification) {
-  return {
-    type: TOAST_UP,
-    payload: notification
-  };
-}
-
-export function toastDown() {
-  return dispach => {
-    dispach({
-      type: TOAST_DOWN
-    });
-  };
-}
+export const changeSearchIne = ine => ({
+  type: CHANGE_SEARCH_INE,
+  ine
+});

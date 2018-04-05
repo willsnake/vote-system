@@ -1,30 +1,17 @@
-import _ from 'lodash';
 import { handleActions } from 'redux-actions';
-import { TOAST_DOWN, TOAST_UP } from '../types';
+import { CHANGE_SEARCH_INE } from '../types';
 
-let TOAST_INITIAL_STATE = {
-  info: null,
-  visible: false
-};
-
-let initialState = {
-  toaster: Object.assign({}, TOAST_INITIAL_STATE)
-};
+let initialState = {};
 
 export const app = handleActions(
   {
-    // [TOAST_UP]: (_state, action) => {
-    //   let state = _.cloneDeep(_state);
-    //   state.toaster.info = action.payload;
-    //   state.toaster.visible = true;
-    //   return state;
-    // },
-    // [TOAST_DOWN]: _state => {
-    //   let state = _.cloneDeep(_state);
-    //   state.toaster.info = null;
-    //   state.toaster.visible = false;
-    //   return state;
-    // }
+    [CHANGE_SEARCH_INE]: (_state, action) => {
+      let state = Object.assign({}, { ..._state });
+      state.loading = false;
+      state.error = false;
+      state.searchIne = action.ine;
+      return state;
+    }
   },
   initialState
 );

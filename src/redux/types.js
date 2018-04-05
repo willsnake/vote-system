@@ -1,1 +1,2 @@
-// export const FILTER_CHANGED = 'FILTER_CHANGED';
+// Home
+export const CHANGE_SEARCH_INE = 'CHANGE_SEARCH_INE';
