@@ -30,6 +30,10 @@ import 'semantic-ui-css/semantic.min.css';
 
 // Middlewares
 import logger from 'redux-logger';
+
+// Initial State
+import { initialState } from './redux/initialState';
+
 const sagaMiddleware = createSagaMiddleware();
 
 const history = createHistory();
@@ -43,21 +47,10 @@ if (process.env.NODE_ENV !== 'production') {
 middlewares.push(routerMiddleware(history));
 middlewares.push(sagaMiddleware);
 
-// Load State
-const persistedState = loadState();
-
-const store = createStore(appReducers, persistedState, compose(applyMiddleware(...middlewares)));
+const store = createStore(appReducers, initialState, compose(applyMiddleware(...middlewares)));
 
 // Initi Sagas
 sagaMiddleware.run(rootSaga);
-
-store.subscribe(
-  throttle(() => {
-    saveState({
-      app: store.getState().app
-    });
-  }, 1000)
-);
 
 render(
   <Provider store={store}>

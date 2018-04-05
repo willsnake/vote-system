@@ -1,2 +1,3 @@
 // Home
 export const CHANGE_SEARCH_INE = 'CHANGE_SEARCH_INE';
+export const SET_LOADING_STATUS = 'SET_LOADING_STATUS';

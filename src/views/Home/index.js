@@ -19,7 +19,6 @@ class Home extends Component {
 
   handleChange(e, { value }) {
     const { changeSearchIneAction, appState } = this.props;
-    console.log('appState', appState);
     changeSearchIneAction(value);
   }
 
