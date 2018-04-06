@@ -11,6 +11,13 @@ const StyledHeader = styled(Header)`
 
 const StyledInput = styled(Input)`
   margin-top: 25px;
+  input {
+    border-color: ${props => (props.success ? 'green' : null)}!important;
+  }
+
+  i {
+    color: ${props => (props.success ? 'green' : null)}!important;
+  }
 `;
 
 export { StyledHeader, StyledInput };

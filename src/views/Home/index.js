@@ -42,12 +42,12 @@ class Home extends Component {
           <StyledInput
             loading={appState.loading}
             error={appState.error}
+            disabled={appState.disabled}
             onChange={this.handleChange}
+            success={appState.success}
             focus
-            min={13}
-            max={13}
             size="huge"
-            icon="search"
+            icon={appState.success ? 'check' : 'search'}
             placeholder="INE"
           />
         </Container>

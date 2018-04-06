@@ -6,13 +6,19 @@ export function* setIneSearch() {
   try {
     const data = yield select(({ app }) => app.searchIne);
     if (data.length === 13) {
-      console.log('data', data);
-      yield put(actions.setLoadingStatus);
-      let res = yield call(searchIneApi, data);
-      console.log('res', res);
+      yield put(actions.setLoadingStatus(true));
+      yield put(actions.setDisableStatus(true));
+      yield call(searchIneApi, data);
+      yield put(actions.setDisableStatus(false));
+      yield put(actions.setLoadingStatus(false));
+      yield put(actions.setSuccessStatus(true));
+      // TODO: Here we have to redirect the user after some time
     }
   } catch (e) {
     console.error('e', e);
+    yield put(actions.setLoadingStatus(false));
+    yield put(actions.setDisableStatus(false));
+    yield put(actions.setErrorStatus(true));
   }
 }
 
