@@ -1,4 +1,4 @@
 import Home from './Home';
-import TestView from './TestView';
+import Cuadricula from './Cuadricula';
 
-export { Home, TestView };
+export { Home, Cuadricula };

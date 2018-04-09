@@ -1,23 +1,15 @@
 import styled from 'styled-components';
-import { Header, Input } from 'semantic-ui-react';
-
-const StyledHeader = styled(Header)`
-  font-size: ${props => (props.fontSize ? props.fontSize : '4em')}!important;
-  font-weight: ${props => (props.fontweight ? props.fontweight : 'normal')}!important;
-  margin-bottom: ${props => (props.marginbottom ? props.marginbottom : '0')}!important;
-  margin-top: ${props => (props.margintop ? props.margintop : '3em')}!important;
-  color: ${props => (props.color ? props.color : 'black')}!important;
-`;
+import { Input } from 'semantic-ui-react';
 
 const StyledInput = styled(Input)`
   margin-top: 25px;
   input {
-    border-color: ${props => (props.success ? 'green' : null)}!important;
+    border-color: ${props => (props.success === true ? 'green' : null)}!important;
   }
 
   i {
-    color: ${props => (props.success ? 'green' : null)}!important;
+    color: ${props => (props.success === true ? 'green' : null)}!important;
   }
 `;
 
-export { StyledHeader, StyledInput };
+export { StyledInput };

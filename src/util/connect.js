@@ -1,3 +1,4 @@
+// @flow
 import { connect } from 'react-redux';
 import * as a from '../redux/actions';
 

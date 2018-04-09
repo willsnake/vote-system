@@ -1,12 +1,13 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
+// Styles
+import { StyledHeader } from './HeaderStyles';
 
 class Header extends Component {
   render() {
-    return <div>Header</div>;
+    return <StyledHeader {...this.props}>{this.props.children}</StyledHeader>;
   }
 }
-
-Header.propTypes = {};
 
 export default Header;

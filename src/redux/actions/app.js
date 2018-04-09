@@ -1,3 +1,4 @@
+// @flow
 import { createAction } from 'redux-actions';
 
 import {
@@ -5,7 +6,8 @@ import {
   SET_LOADING_STATUS,
   SET_DISABLE_STATUS,
   SET_ERROR_STATUS,
-  SET_SUCCESS_STATUS
+  SET_SUCCESS_STATUS,
+  SET_MESSAGE_STATUS
 } from '../types';
 
 export const changeSearchIne = createAction(CHANGE_SEARCH_INE);
@@ -17,3 +19,5 @@ export const setDisableStatus = createAction(SET_DISABLE_STATUS);
 export const setErrorStatus = createAction(SET_ERROR_STATUS);
 
 export const setSuccessStatus = createAction(SET_SUCCESS_STATUS);
+
+export const setMessageStatus = createAction(SET_MESSAGE_STATUS);

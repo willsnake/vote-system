@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Responsive, Segment } from 'semantic-ui-react';
+// import PropTypes from 'prop-types';
+import { Responsive } from 'semantic-ui-react';
 
 // Styles
 import { StyledSegment } from './MainContainerStyles';

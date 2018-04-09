@@ -1,15 +1,16 @@
+// @flow
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Container, Icon } from 'semantic-ui-react';
+import { Container, Message } from 'semantic-ui-react';
 
 // Components
-import { MainContainer } from '../../components';
+import { MainContainer, Header } from '../../components';
 
 // Connect
 import Connect from '../../util/connect';
 
 // Styles
-import { StyledHeader, StyledInput } from './HomeStyles';
+import { StyledInput } from './HomeStyles';
 
 class Home extends Component {
   constructor() {
@@ -17,23 +18,33 @@ class Home extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { appState: { success, searchIne }, history } = nextProps;
+    if (success === true) {
+      setInterval(() => {
+        history.push({
+          pathname: '/cuadricula',
+          search: `?ine=${searchIne}`,
+          state: { app: { searchIne } }
+        });
+      }, 3000);
+    }
+  }
+
   handleChange(e, { value }) {
-    const { changeSearchIneAction, appState } = this.props;
+    const { changeSearchIneAction } = this.props;
     changeSearchIneAction(value);
   }
 
   render() {
     const { appState } = this.props;
+    let color = appState.success ? 'green' : 'red';
+    let icon = appState.success ? 'check' : 'search';
     return (
       <MainContainer>
         <Container text>
-          <StyledHeader
-            as="h1"
-            content="Demo Sistema Votacion"
-            fontSize={'4em'}
-            margintop={'1.5em'}
-          />
-          <StyledHeader
+          <Header as="h1" content="Demo Sistema Votacion" fontSize={'4em'} margintop={'1.5em'} />
+          <Header
             as="h2"
             content="Por favor, ingrese su numero de INE"
             fontSize={'1.7em'}
@@ -47,9 +58,12 @@ class Home extends Component {
             success={appState.success}
             focus
             size="huge"
-            icon={appState.success ? 'check' : 'search'}
+            icon={`${icon}`}
             placeholder="INE"
           />
+          {appState.message.length > 0 ? (
+            <Message color={`${color}`} header={appState.message} />
+          ) : null}
         </Container>
       </MainContainer>
     );

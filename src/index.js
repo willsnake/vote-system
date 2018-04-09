@@ -17,13 +17,8 @@ import { Router, Route, Switch } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
 
-import throttle from 'lodash/throttle';
-
 // Views
-import { Home, TestView } from './views/';
-
-// Utils
-import { loadState, saveState } from './util/localStorage';
+import { Home, Cuadricula } from './views/';
 
 // Styles
 import 'semantic-ui-css/semantic.min.css';
@@ -57,7 +52,7 @@ render(
     <Router history={history}>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/test" component={TestView} />
+        <Route exact path="/cuadricula" component={Cuadricula} />
       </Switch>
     </Router>
   </Provider>,

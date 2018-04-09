@@ -1,7 +1,5 @@
+import { APP_INITIAL_STATE } from './reducers/app';
+
 export const initialState = {
-  app: {
-    error: false,
-    loading: false,
-    searchIne: ''
-  }
+  app: Object.assign({}, APP_INITIAL_STATE)
 };
